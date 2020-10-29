@@ -1,0 +1,10 @@
+export const DATA_TODOS = "DATA_TODOS";
+export const TOGGLE_TABLE_ADD = "TOGGLE_TABLE_ADD";
+export const CLOSE_TABLE_ADD = "CLOSE_TABLE_ADD";
+export const TOGGLE_UPDATE = "TOGGLE_UPDATE";
+export const CLOSE_UPDATE = "CLOSE_UPDATE";
+export const ADD_ITEM = "ADD_ITEM";
+export const UPDATE_STATUS = "UPDATE_STATUS";
+export const DELETE_ITEM = "DELETE_ITEM";
+export const UPDATE_ITEM = "UPDATE_ITEM";
+export const QUICK_FILTER_ITEM = "QUICK_FILTER_ITEM";
