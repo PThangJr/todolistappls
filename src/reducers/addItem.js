@@ -9,7 +9,8 @@ var myReducer = (state = initialState, action) => {
         case types.ADD_ITEM:
             // console.log(action.addItem);
             
-        default: return state;
+        default: 
+            return state;
     }
 }
 export default myReducer;

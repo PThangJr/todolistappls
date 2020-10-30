@@ -2,19 +2,34 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as actions from "../actions/index";
 class Controls extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyword: "",
+    }
+  }
+  
   onToggleForm = () => {
     const {toggleTableAdd} = this.props;
     // this.props.onToggleTableAdd();
     // this.props.onToggleTableAdd();
     toggleTableAdd()
   }
-  generateID = () => {
-    return Date.now();
+  onChangeSearch = (e) => {
+    this.setState({
+      keyword: e.target.value
+    })
+  }
+  onSearch = () => {
+    const {keyword} = this.state;
+    const {onSearch} = this.props;
+    onSearch(keyword)
   }
     render() {
-      const {toggleTableAdd, displayTableAdd} = this.props;
+      // const {toggleTableAdd, displayTableAdd} = this.props;
       // console.log(toggleTableAdd);
       // console.log(displayTableAdd);
+      // console.log(this.state)
         return (
             <section className="option">
                     <div className="row">
@@ -29,9 +44,17 @@ class Controls extends Component {
                           </span>
                         </button>
                         <div className="option__search">
-                          <input type="text" className="option__search-input"
-                           placeholder="Nhập từ khóa tìm kiếm..." />
-                          <button className="btn btn--blue btn--primary btn--search">
+                          <input 
+                            type="text"
+                            name="fieldSearch"
+                            className="option__search-input"
+                            placeholder="Nhập từ khóa tìm kiếm..." 
+                            onChange={this.onChangeSearch}
+                            />
+                          <button 
+                            className="btn btn--blue btn--primary btn--search"
+                            onClick={this.onSearch}
+                            >
                             <i className="fas fa-search" />
                             <span className="btn__name">
                               Tìm kiếm
@@ -53,6 +76,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     toggleTableAdd: () => {
       dispatch(actions.toggleTableAdd());
+    },
+    onSearch: (keyword) => {
+      dispatch(actions.search(keyword))
     }
   }
 }

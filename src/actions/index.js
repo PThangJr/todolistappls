@@ -58,3 +58,15 @@ export const quickFilterItem = (filter ) => {
         filter   
     }
 }
+export const search = (keyword ) => {
+    return {
+        type: types.SEARCH,
+        keyword   
+    }
+}
+export const sort = (sort ) => {
+    return {
+        type: types.SORT,
+        sort   
+    }
+}

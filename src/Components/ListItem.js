@@ -38,7 +38,7 @@ class ListItem extends Component {
   }
     displayUpdate = (e) => {
       // console.log(e.target.value)
-      const {id, name} = this.props.listItem;
+      const {id} = this.props.listItem;
       const {onDisplayUpdate, listItem} = this.props;
       this.setState({
         id: id,
@@ -135,8 +135,8 @@ class ListItem extends Component {
    
   }
   render() {
-    const { listItem, stt, displayUpdate } = this.props;
-    const { id, name, status } = listItem;
+    const { listItem, stt } = this.props;
+    const { id, status } = listItem;
     // console.log(status)
     // console.log(displayUpdate)
     // console.log(this.state)

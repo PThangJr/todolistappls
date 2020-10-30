@@ -19,7 +19,7 @@ class TableAdd extends Component {
   }
   onAdd = (e) => {
     e.preventDefault();
-    const {name, status} = this.state;
+    const {name} = this.state;
     const {onAddItem} = this.props;
     if (name === "") {
       alert("Vui lòng nhập tên công việc!!")
@@ -46,7 +46,7 @@ class TableAdd extends Component {
       // console.log(this.props.displayTableAdd)
       // console.log(this.state)
       const {status, name} = this.state;
-      const { displayTableAdd, closeTableAdd, addItem } = this.props;
+      const { closeTableAdd } = this.props;
         return (
             <div className="add-box">
             <div className="add">

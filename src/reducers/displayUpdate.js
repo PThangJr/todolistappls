@@ -1,5 +1,4 @@
 import * as types from "../constants/ActionTypes";
-var data = JSON.parse(localStorage.getItem("data"));
 var initialState = {
     byID: null,
     status: false 
