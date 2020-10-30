@@ -2,7 +2,7 @@
   0% {
     transform: translateY(-0.5px); }
   100% {
-    transform: translateY(-2px); } }
+    transform: translateY(-1px); } }
 
 .btn {
   display: block;
@@ -72,6 +72,8 @@ input[type="text"] {
   font-style: italic; }
 
 .complete .table__name .table__text {
+  cursor: pointer;
+  /* pointer-events: none; */
   opacity: 0.5;
   font-style: italic;
   text-decoration: line-through; }
@@ -109,7 +111,7 @@ html {
 
 .right {
   box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.15);
-  height: 100vh; }
+  padding-bottom: 50px; }
 
 .main {
   margin-top: 20px; }
@@ -289,8 +291,6 @@ html {
       margin-bottom: 5px; }
   .add-box {
     min-height: 250px; }
-  .right {
-    height: 500px; }
   .main .tables .table__stt {
     width: 8%; }
   .main .tables .table__header .table__name:first-child {
