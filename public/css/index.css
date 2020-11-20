@@ -72,7 +72,6 @@ input[type="text"] {
   font-style: italic; }
 
 .complete .table__name .table__text {
-  cursor: pointer;
   /* pointer-events: none; */
   opacity: 0.5;
   font-style: italic;
@@ -294,7 +293,9 @@ html {
   .main .tables .table__stt {
     width: 8%; }
   .main .tables .table__header .table__name:first-child {
-    flex-direction: column; }
+    flex-direction: column; 
+  
+  }
   .main .tables .table__header .table__status {
     flex-direction: column; }
   .main .tables .table__name {

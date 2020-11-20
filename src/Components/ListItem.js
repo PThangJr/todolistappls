@@ -11,58 +11,58 @@ class ListItem extends Component {
     }
   }
   onUpdateItem = () => {
-    const {onUpdateItem, displayUpdate, onCloseUpdateItem} = this.props;
-    const {id, name} = this.state;
+    const { onUpdateItem, displayUpdate, onCloseUpdateItem } = this.props;
+    const { id, name } = this.state;
     // console.log(displayUpdate);
     onUpdateItem(id, name, displayUpdate);
     // console.log(this.state)
     onCloseUpdateItem(false);
   }
   onUpdateStatus = () => {
-    const {id} = this.props.listItem;
+    const { id } = this.props.listItem;
     // console.log("Click")
-    const {onUpdateStatus} = this.props;
+    const { onUpdateStatus } = this.props;
     // console.log(onUpdateStatus)
     onUpdateStatus(id);
   }
   onDeleteItem = () => {
-    const {id} = this.props.listItem;
-    const {onDeleteItem} = this.props;
+    const { id } = this.props.listItem;
+    const { onDeleteItem } = this.props;
     // console.log("click")
     onDeleteItem(id);
-    }
+  }
   onCloseUpdateItem = () => {
-    const {displayUpdate} = this.props;
-    const {onCloseUpdateItem} = this.props;
+    const { displayUpdate } = this.props;
+    const { onCloseUpdateItem } = this.props;
     onCloseUpdateItem(displayUpdate)
   }
-    displayUpdate = (e) => {
-      // console.log(e.target.value)
-      const {id} = this.props.listItem;
-      const {onDisplayUpdate, listItem} = this.props;
-      this.setState({
-        id: id,
-        name: listItem.name
-      })
-      // console.log(listItem.name);
-      onDisplayUpdate(id)
-    }
-    onChange = (e) => {
-      const checkid = parseInt(e.target.getAttribute("checkid"))
-      this.setState({
-        id: checkid,
-        name :  e.target.value
-      })
-    }
+  displayUpdate = (e) => {
+    // console.log(e.target.value)
+    const { id } = this.props.listItem;
+    const { onDisplayUpdate, listItem } = this.props;
+    this.setState({
+      id: id,
+      name: listItem.name
+    })
+    // console.log(listItem.name);
+    onDisplayUpdate(id)
+  }
+  onChange = (e) => {
+    const checkid = parseInt(e.target.getAttribute("checkid"))
+    this.setState({
+      id: checkid,
+      name: e.target.value
+    })
+  }
   renderStatus = () => {
     const { status } = this.props.listItem;
     if (status === "complete") {
       return (
-        <span 
+        <span
           className="btn btn--status btn--complete"
           onClick={this.onUpdateStatus}
-          >
-          <span 
+        >
+          <span
             className="btn-pc">
             Đã hoàn thành
            </span>
@@ -73,66 +73,66 @@ class ListItem extends Component {
     }
     else if (status === "notComplete") {
       return (
-        <span 
+        <span
           className="btn btn--not-complete"
           onClick={this.onUpdateStatus}
-          
-          >
-                              Chưa hoàn thành
-                            </span>
+
+        >
+          Chưa hoàn thành
+        </span>
       )
     }
   }
   renderNameItem = () => {
     const { displayUpdate, byID, listItem } = this.props;
-    const { name , id } = listItem;
-    
+    const { name, id } = listItem;
+
     // console.log(byID)
     if (id === byID) {
       // console.log(name)
       if (displayUpdate) {
         return (
           <div className="table__repair-input">
-              <div className="repair-input-box">
-                <input 
-                  type="text" 
-                  className="repair-input" 
-                  name="repair"
-                  checkid={id}
-                  value={this.state.name}
-                  onChange={this.onChange}
-                  autoFocus
-                   />
-                <span 
-                  className="repair-input-close"
-                  onClick={this.onCloseUpdateItem}
-                >
-                  <i className="fas fa-times" />
-                </span>
-              </div>
-              <button 
-                className="btn btn--primary"
-                onClick={() => this.onUpdateItem()}
-                >Cập nhật</button>
+            <div className="repair-input-box">
+              <input
+                type="text"
+                className="repair-input"
+                name="repair"
+                checkid={id}
+                value={this.state.name}
+                onChange={this.onChange}
+                autoFocus
+              />
+              <span
+                className="repair-input-close"
+                onClick={this.onCloseUpdateItem}
+              >
+                <i className="fas fa-times" />
+              </span>
             </div>
+            <button
+              className="btn btn--primary"
+              onClick={() => this.onUpdateItem()}
+            >Cập nhật</button>
+          </div>
         )
       }
       else {
         return (
-            <p className="table__text ">
-                {name}
-            </p>
+          <p className="table__text ">
+            {name}
+          </p>
         )
       }
-      }
-      else {
-        return (
-            <p className="table__text ">
-                {name}
-            </p>
-        )
-      }
-   
+    }
+    else {
+      return (
+        <p className="table__text ">
+          {name}
+        </p>
+      )
+    }
+
   }
   render() {
     const { listItem, stt } = this.props;
@@ -143,18 +143,18 @@ class ListItem extends Component {
 
 
     return (
-      <tr className= {status === "complete" ? "table__item complete" : "table__item" }>
+      <tr className={status === "complete" ? "table__item complete" : "table__item"}>
         <td className="table__stt">
           {stt}
         </td>
-        <td 
+        <td
           className="table__name"
-          
-          >
+
+        >
           {
             this.renderNameItem()
           }
-          
+
         </td>
         <td className="table__status">
           {
@@ -164,20 +164,20 @@ class ListItem extends Component {
         </td>
         <td className="table__actions">
           <div className="table__actions-btn">
-            <button 
+            <button
               className="btn  btn--repair"
               onClick={(e) => this.displayUpdate(e)}
               value={id}
-              >
+            >
               <i className="fas fa-tools" />
               <span className="btn-mobile">
                 Sửa
                                 </span>
             </button>
-            <button 
+            <button
               className="btn  btn--delete"
               onClick={(e) => this.onDeleteItem(e)}
-              >
+            >
               <i className="fas fa-trash-alt" />
               <span className="btn-mobile">
                 Xóa
@@ -221,8 +221,8 @@ const mapDispatchToProps = (dispatch, props) => {
     onDisplayUpdate: (id) => {
       dispatch(actions.toggleUpdate(id))
     },
-    onUpdateItem: (id, name ) => {
-      dispatch(actions.updateItem(id, name ))
+    onUpdateItem: (id, name) => {
+      dispatch(actions.updateItem(id, name))
     },
     onCloseUpdateItem: () => {
       dispatch(actions.closeUpdate())

@@ -45,28 +45,28 @@ export const deleteItem = (id) => {
         id
     }
 }
-export const updateItem = (id, name ) => {
+export const updateItem = (id, name) => {
     return {
         type: types.UPDATE_ITEM,
         id,
-        name    
+        name
     }
 }
-export const quickFilterItem = (filter ) => {
+export const quickFilterItem = (filter) => {
     return {
         type: types.QUICK_FILTER_ITEM,
-        filter   
+        filter
     }
 }
-export const search = (keyword ) => {
+export const search = (keyword) => {
     return {
         type: types.SEARCH,
-        keyword   
+        keyword
     }
 }
-export const sort = (sort ) => {
+export const sort = (sort) => {
     return {
         type: types.SORT,
-        sort   
+        sort
     }
 }
